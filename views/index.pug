@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  
+  script(src='/javascripts/main.js')
+  script(async defer src="https://apis.google.com/js/api.js" 
+          onload="this.onload=function(){};handleClientLoad()" 
+          onreadystatechange="if (this.readyState === 'complete') this.onload()")
+  script(src='/javascripts/index.js')
+  button#signin-button(onclick="handleSignInClick()" value="Sign in") Iniciar Sesión
+  button#signout-button(onclick="handleSignOutClick()" value="Sign in") Cerrar Sesión
+  button#generatePdf() Generar PDF
+  hr
+  table.table.table-bordered
+    thead
+      tr
+        th(scope='col') BOOKING REFERENCE
+        th(scope='col') HOTEL NAME
+        th(scope='col') ADDRESS
+        th(scope='col') GUEST
+        th(scope='col') CHECK-IN
+        th(scope='col') CHECK-OUT
+        th(scope='col') NIGTHS
+        th(scope='col') ROOM TYPE
+        th(scope='col') ESSENTIAL INFO
+        th(scope='col') CREATE PDF
+    tbody#tbody
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js')
+  script(src='/javascripts/moduleHtml.js')
+  script(src='/javascripts/index.js')
+  
