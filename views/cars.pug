@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  script(async defer src="https://apis.google.com/js/api.js" 
+          onload="this.onload=function(){};handleClientLoad()" 
+          onreadystatechange="if (this.readyState === 'complete') this.onload()")
+  script(src='/javascripts/cars.js')
+  script(src='/scripts/image-to-base64/image-to-base64.min.js')
+  button#signin-button(onclick="handleSignInClick()" value="Sign in") Iniciar Sesión
+  button#signout-button(onclick="handleSignOutClick()" value="Sign in") Cerrar Sesión
+  button#generatePdf() Generar PDF
+  hr
+  table.table.table-bordered
+    thead
+      tr
+        th(scope='col') RESERVED FOR
+        th(scope='col') CAR RENTAL IN
+        th(scope='col') ITINERARY
+        th(scope='col') BOOKING REFERENCE
+        th(scope='col') INFORMATION
+        th(scope='col') PICKUP
+        th(scope='col') DROP OFF
+        th(scope='col') ADITIONAL CAR SERVICES
+        th(scope='col') CREATE PDF
+    tbody#tbody
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js')

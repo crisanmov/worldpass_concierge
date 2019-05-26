@@ -1,20 +1,4 @@
 
-function makeApiCall() {
-      var params = {
-        spreadsheetId: '1lFJT0h7L2p9Zj_qxozAqReDKMfJdmdqNHzqFXxkfDZM',
-        range: 'Hotels',
-      };
-
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        //console.log(response.result);
-        populateSheet(response.result.values);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
-    }
-
 function initClient() {
 
   var API_KEY = 'AIzaSyAR4sDVdDdv6Fe2eWQgrFuTG_wqCl3yaj8';  // TODO: Update placeholder with desired API key.
@@ -54,29 +38,4 @@ function handleSignInClick(event) {
 
 function handleSignOutClick(event) {
   gapi.auth2.getAuthInstance().signOut();
-}
-
-function populateSheet(array){
-  //console.log(array);
-  let tbody = document.querySelector('#tbody');
-
-  for(let row=2, i=0; row<10; row++, i++){
-
-    let tr = document.createElement('tr');
-    tr.setAttribute('id', i);
-    let chbx = document.createElement('INPUT');
-    chbx.setAttribute('type', 'checkbox');
-    chbx.setAttribute('id', i);
-    chbx.setAttribute('class', 'rows');
-
-    for(let col=0; col<9; col++){
-      //console.log(array[row][col]);
-      let td = document.createElement('td');
-      td.innerHTML = array[row][col];
-      tr.append(td);
-
-    }
-    tr.append(chbx);
-    tbody.append(tr);
-  }
 }

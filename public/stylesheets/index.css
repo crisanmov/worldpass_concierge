@@ -1,0 +1,31 @@
+
+.actions{
+   text-align: center;
+   margin-top: 20px;
+   margin-bottom: 25px;
+}
+
+.options{
+    //border: 1px solid orange;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 50%;
+    margin: 0px auto;
+    height: 300px;
+    text-align: center;
+}
+
+.options div {
+    //border: 1px solid green;
+    background-color: #0F5076;
+    color: white;
+    padding: 12%;
+    margin: 15px;
+    font-family: Helvetica, Arial;
+    font-size: x-large;
+}
+
+.options a{
+  text-decoration: none;
+  color: white;
+}
