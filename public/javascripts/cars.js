@@ -112,11 +112,11 @@ function createPdf(concierge) {
     doc.text(car_rental_in,109,161);
     doc.text(itinerary,99, 167);
     doc.text(booking_reference,90, 185);
-        doc.setFontSize(10)
-    doc.text(informacion,31,200);
-    doc.text(pickup,31,240);
-    doc.text(drop_off,120,240);
-    doc.text(aditional_car_services,31,280);
+    doc.setFontSize(10)
+    doc.text(informacion,43,200);
+    doc.text(pickup,42,240);
+    doc.text(drop_off,118,240);
+    doc.text(aditional_car_services,41,280);
     doc.save('cars.pdf');
 }
 

@@ -110,7 +110,7 @@ function createPdf(concierge) {
     //var asd =  splitTitle[0];
     //var asd2 = splitTitle[1];
 
-
+  doc.setFontSize(12);
     doc.text(voucher,67,155);
     doc.text(date_issued,142,155);
     doc.text(product,100, 160.5);
@@ -119,6 +119,7 @@ function createPdf(concierge) {
     doc.text(id_passport,73,184);
     doc.text(mr,65,202);
     doc.text(phone_number,85,208);
+  
     doc.text(agent, 133,218);
     doc.text(control,95,223.5);
     doc.text(amount,140,223.5);

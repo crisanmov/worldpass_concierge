@@ -94,29 +94,36 @@ function createPdf(concierge) {
 
     doc.addImage(imgData, 'JPEG', 0,0, 216, 356);
 
-       var lMargin=67;
-       var rMargin=60;
+       var lMargin=47;
+       var rMargin=40;
        var pdfInMM=216;
-var lines = doc.splitTextToSize(hotel_address, (pdfInMM-lMargin-rMargin));
-var lines1 = lines[0];
-var lines2 = lines[1];
-if(lines.length === 3){var lines3 = lines[2]}
-else{var lines3 = ""};
+       var lines = doc.splitTextToSize(hotel_address, (pdfInMM-lMargin-rMargin));
+       var lineName = doc.splitTextToSize(guest, (pdfInMM-lMargin-rMargin));
 
-var lines4 = "";
+       var lineName0 = lineName[0];
+       if(lineName.length >= 2){var lineName1 = lineName[1]}
+       else {var lineName1 = ""};
+
+        var lines0 = lines[0];
+        if(lines.length === 2){var lines1 = lines[1]}
+        else{var lines1 = ""; var lines2 = "" };
+        if(lines.length === 3){var lines2 = lines[2];  var lines1 = lines[1]}
+        else{var lines2 = ""};
+
     doc.setFontType('bold')
     doc.setFontSize(22)
     doc.myText(hotel, {align: "center"},0,155);
     doc.setFontType('normal')
     doc.setFontSize(15)
     //doc.myText(hotel_address, {align: "center"},0,165);
-    doc.myText(lines1, {align: "center"},0,165);
-    doc.myText(lines2, {align: "center"},0,170);
-    doc.myText(lines3, {align: "center"},0,175);
+    doc.myText(lines0, {align: "center"},0,165);
+    doc.myText(lines1, {align: "center"},0,170);
+    doc.myText(lines2, {align: "center"},0,175);
   //if (lines3 === lines4 ){doc.myText(lines3, {align: "center"},0,175)};
 
     doc.myText(booking,{align: "center"},0, 187);
-    doc.myText(guest, {align: "center"},0, 205);
+    doc.myText(lineName0, {align: "center"},0, 205);
+    doc.myText(lineName1, {align: "center"},0, 210);
     doc.text(check_in,70,225);
     doc.text(check_out,118,225);
     doc.text(nigths,120,238);
