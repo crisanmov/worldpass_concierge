@@ -118,7 +118,6 @@ function createPdf(concierge) {
     doc.text(drop_off,120,240);
     doc.text(aditional_car_services,31,280);
     doc.save('cars.pdf');
-
 }
 
 function getRowValues(row) {
